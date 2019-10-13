@@ -14,11 +14,11 @@ class Header extends Component {
     }
     render() {
         return (
-            <div>
-                <p>
-                    Header
-                </p>
-            </div>
+            <p ref="versions">
+                Estamos usando node {remote.getGlobal('nodeVersion')},
+                Chrome {remote.getGlobal('chromeVersion')},
+                y Electron {remote.getGlobal('electronVersion')}.
+            </p>
         );
     }
 };

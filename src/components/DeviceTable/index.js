@@ -7,6 +7,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 import constants from '../../constants';
+import { Button } from '@material-ui/core';
 
 const ipc = window.require('electron').ipcRenderer;
 
@@ -26,6 +27,10 @@ class DeviceTable extends Component {
                 rows: devices,
             })
         });
+    }
+    handleClick(id) {
+        // console.log('device', id);
+        ipc.send(constants.EVENT_DEVICE_SELECTED, id);
     }
     render() {
         // const classes = useStyles();
@@ -47,7 +52,7 @@ class DeviceTable extends Component {
                 {this.state.rows.map(row => (
                     <TableRow key={row.id}>
                     <TableCell component="th" scope="row">
-                        {row.id}
+                        <Button onClick={() => this.handleClick(row.id)}>{row.id}</Button>
                     </TableCell>
                     <TableCell>{row.model}</TableCell>
                     <TableCell align="right">{row.product}</TableCell>

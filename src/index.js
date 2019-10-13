@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-// import store from 'store';
-import App from './components/App';
+import Router from './components/Router';
+import Header from './components/Header';
+import Footer from './components/Footer';
+// import App from './components/App';
 
-import constants from './constants';
+// const ipc = window.require('electron').ipcRenderer;
 
-const ipc = window.require('electron').ipcRenderer;
+const App = () => (
+  <div className="layoutWrapper">
+      <Fragment>
+        <Header />
+        <Router />
+        <Footer />
+      </Fragment>
+  </div>
+);
 
 const renderApp = () => {
   ReactDOM.render(<App />, document.getElementById('root'));
 };
 
 renderApp();
-
-// ipc.on(constants.EVENT_SYNC_DEVICES_RESPONSE, (event, arg) => {
-//   console.log(constants.EVENT_SYNC_DEVICES_REQUEST, arg);
-// });

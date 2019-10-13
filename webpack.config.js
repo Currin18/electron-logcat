@@ -10,6 +10,7 @@ const plugins = [
         NODE_ENV: process.env.NODE_ENV | 'development',
         DEBUG: true,
     }),
+    new CopyWebpackPlugin([{ from: 'res', to: 'res' }]), // para copiar estaticos
     new HtmlWebpackPlugin({
         hash: true,
         template: './index.html',
