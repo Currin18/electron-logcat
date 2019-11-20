@@ -22,7 +22,7 @@ let mainWindow;
 
 const goToPath = (hash) => {
     mainWindow.loadURL(url.format({
-        pathname: path.join(__dirname, './dist/index.html'),
+        pathname: path.join(__dirname, './index.html'),
         protocol: 'file:',
         slashes: true,
         hash
@@ -42,7 +42,7 @@ const createWindow = () => {
     // mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, './index.html')}`);
     // mainWindow.loadFile('dist/index.html');
     
-    goToPath('/splash');
+    // goToPath('/splash');
 
     if (isDev) {
         // Open the DevTools.
